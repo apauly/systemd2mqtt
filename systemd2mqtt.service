@@ -1,0 +1,17 @@
+[Unit]
+Description=systemd2mqtt Bridge
+
+[Service]
+User=root
+Group=root
+Restart=always
+TimeoutSec=300
+WorkingDirectory=/home/pi/systemd2mqtt
+ExecStart=/home/pi/.rvm/rubies/ruby-2.7.0/bin/ruby systemd2mqtt.rb
+Environment=MQTT_URL=192.168.178.42
+Environment=SERVICES="pihole-FTL,octoprint,shh-tunnel"
+# Environment=HOSTNAME=homeassistant # will be auto detected if not present
+
+
+[Install]
+WantedBy=multi-user.target
