@@ -1,6 +1,6 @@
 # systemd2mqtt
 
-systemd2mqtt allows you to control a certain systemd based services via MQTT.
+systemd2mqtt allows you to control certain systemd based services via MQTT.
 
 ## Installation
 
@@ -28,3 +28,8 @@ switch:
 ## Requirements
 
 I'm currently using this on a raspberry pi with ruby-2.7. Other environments with newer or older ruby versions might also work.
+
+## Security implications
+
+Even though the controllable services are limit to `ENV['SERVICES']`, please be aware that anybody who can publish messages on the MQTT server is capable of starting/stopping those services.
+I'm currently just using it for some home automation and wouldn't recommend using it on any critical infrastructure!
